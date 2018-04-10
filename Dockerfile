@@ -10,8 +10,8 @@ RUN BUILD_DEPS='autoconf \
                 libssl-dev' \
     && apt-get update \
     && apt-get install -yqq $RUN_DEPS $BUILD_DEPS --no-install-recommends \
+    && pip install --upgrade pip \
     && pip install pipenv \
-    && pipenv --python 3.6 \
     && apt-get purge -y --auto-remove $BUILD_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
