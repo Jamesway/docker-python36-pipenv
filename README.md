@@ -1,4 +1,4 @@
-# Docker container with Python 3.6 and pipenv
+# Docker image with Python 3.6 and pipenv
 Brings PHP composer style package management to Python
 
 ### Installing a package
