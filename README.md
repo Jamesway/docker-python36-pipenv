@@ -1,28 +1,20 @@
 # Docker image with Python 3.6 and pipenv
 Brings PHP composer style package management to Python
 
-### Installing a package
-```
-# eg Django
-docker run --rm -itv $(pwd):/code jamesway/python36-pipenv install django
-```
+### Usage with my 12 Factor django-admin docker image
+https://github.com/jamesway/docker-12factor-django
 
-### Installing a package for development
+### Installing packages
 ```
-docker run --rm -itv $(pwd):/code jamesway/python36-pipenv install pytest --dev
-```
+# install normally
+docker run --rm -v $(pwd):/code jamesway/python36-pipenv install python-dotenv
 
-### Installing all non-development packages from pipfile
-```
+# install a development package
+docker run --rm -v $(pwd):/code jamesway/python36-pipenv install pytest --dev
+
+# install all non-development packages from pipfile
 docker run --rm -itv $(pwd):/code jamesway/python36-pipenv install
-```
 
-### Installing everything including dev packages from pipfile
-```
+# installing everything including dev packages from pipfile
 docker run --rm -itv $(pwd):/code jamesway/python36-pipenv install --dev
-```
-
-### Generate a version lock file
-```
-docker run --rm -itv $(pwd):/code jamesway/python36-pipenv lock
 ```

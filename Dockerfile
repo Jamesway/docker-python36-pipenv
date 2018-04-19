@@ -3,6 +3,10 @@ FROM python:3.6-slim-stretch
 
 MAINTAINER James <j@mesway.io>
 
+ENV PIPENV_VENV_IN_PROJECT true
+ENV APP_PATH /code
+ENV PATH $APP_PATH:$PATH
+
 # scrapy and selenium
 RUN BUILD_DEPS='autoconf \
                 build-essential \
@@ -15,8 +19,6 @@ RUN BUILD_DEPS='autoconf \
     && apt-get purge -y --auto-remove $BUILD_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
-ENV APP_PATH /code
-ENV PATH $APP_PATH:$PATH
 WORKDIR $APP_PATH
 
-CMD ["pipenv"]
+ENTRYPOINT ["pipenv"]
